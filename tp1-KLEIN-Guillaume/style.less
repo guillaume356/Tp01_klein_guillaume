@@ -1,0 +1,52 @@
+// Variables
+@primary-color: #333;
+@secondary-color: #555;
+@font-stack: Arial, sans-serif;
+@padding-base: 10px;
+
+// Mixin pour les bordures
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+// Styles de base
+body {
+  font-family: @font-stack;
+  color: @primary-color;
+  padding: @padding-base;
+}
+
+// En-têtes avec des styles personnalisés
+h1 {
+  color: @secondary-color;
+  .border-radius(5px); // Utilisation du mixin pour border-radius
+  padding: @padding-base * 2;
+}
+
+// Styles pour les liens
+a {
+  color: @secondary-color;
+  &:hover { // Pseudo-classe hover
+    color: darken(@secondary-color, 10%);
+  }
+}
+
+// Styles pour les boutons
+.btn {
+  background-color: @primary-color;
+  color: white;
+  .border-radius(3px); // Utilisation du mixin
+  padding: @padding-base;
+  &:hover {
+    background-color: darken(@primary-color, 10%);
+  }
+}
+
+// Réutilisation de variables et mixins pour d'autres éléments
+.input {
+  border: 1px solid @primary-color;
+  .border-radius(2px);
+  padding: @padding-base / 2;
+}

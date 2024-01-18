@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  padding: 10px;
+}
+h1 {
+  color: #555;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 20px;
+}
+a {
+  color: #555;
+}
+a:hover {
+  color: #3b3b3b;
+}
+.btn {
+  background-color: #333;
+  color: white;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 10px;
+}
+.btn:hover {
+  background-color: #1a1a1a;
+}
+.input {
+  border: 1px solid #333;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding: 10px / 2;
+}

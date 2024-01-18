@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire Compte Client</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Création de Compte Client</h1>
+        <form action="/submit-form" method="post" id="formClient">
+            <div class="form-group">
+                <label for="nom">Nom:</label>
+                <input type="text" class="form-control" id="nom" name="nom" required>
+            </div>
+            <div class="form-group">
+                <label for="prenom">Prénom:</label>
+                <input type="text" class="form-control" id="prenom" name="prenom" required>
+            </div>
+            <div class="form-group">
+                <label for="adresse">Adresse:</label>
+                <input type="text" class="form-control" id="adresse" name="adresse" required>
+            </div>
+            <div class="form-group">
+                <label for="cp">Code Postal:</label>
+                <input type="text" class="form-control" id="cp" name="cp" required pattern="\d{5}">
+            </div>
+            <div class="form-group">
+                <label for="ville">Ville:</label>
+                <input type="text" class="form-control" id="ville" name="ville" required>
+            </div>
+            <div class="form-group">
+                <label for="tel">Téléphone:</label>
+                <input type="tel" class="form-control" id="tel" name="tel" required pattern="\d{10}">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="civilite">Civilité:</label>
+                <select class="form-control" id="civilite" name="civilite" required>
+                    <option value="">Sélectionnez</option>
+                    <option value="m">M.</option>
+                    <option value="mme">Mme</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="login">Login:</label>
+                <input type="text" class="form-control" id="login" name="login" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirmer le mot de passe:</label>
+                <input type="password" class="form-control" id="confirm_password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Soumettre</button>
+        </form>
+    </div>
+
+    <!-- Inclusion de jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Script de validation -->
+    <script>
+    $(document).ready(function() {
+        $("#formClient").submit(function(event) {
+            var password = $("#password").val();
+            var confirmPassword = $("#confirm_password").val();
+
+            // Effacer les messages d'erreur précédents
+            $(".error").remove();
+
+            // Validation du mot de passe
+            if (password !== confirmPassword) {
+                event.preventDefault(); // Empêcher la soumission du formulaire
+                $("#confirm_password").after('<span class="error" style="color:red;">Les mots de passe ne correspondent pas.</span>');
+            }
+        });
+    });
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
